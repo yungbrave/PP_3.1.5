@@ -10,9 +10,6 @@ currentUser.then(data => makeCurrentUserTable(data))
 const makeCurrentUserTable = (data) => {
     let currentUserTableBody = `<tr>
     <td>${data.id}</td>
-    <td>${data.firstName}</td>
-    <td>${data.lastName}</td>
-    <td>${data.age}</td>
     <td>${data.email}</td>
     <td>
     <span>`;

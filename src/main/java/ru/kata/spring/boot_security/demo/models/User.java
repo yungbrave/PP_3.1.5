@@ -27,17 +27,9 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "firstName")
-    private String firstName;
-
-    @Column(name = "lastName")
-    private String lastName;
-
     @Column(name = "email", unique = true)
     private String email;
 
-    @Column(name = "age")
-    private int age;
 
     @Column(name = "password")
     private String password;
@@ -57,11 +49,12 @@ public class User implements UserDetails {
 
     public User(String email, int age) {
         this.email = email;
-        this.age = age;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public User(String email, String password, Set<Role> roles) {
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
     }
 
     @Override
@@ -84,9 +77,6 @@ public class User implements UserDetails {
         return true;
     }
 
-    public void setFirstName(String name) {
-        this.firstName = name;
-    }
 
     public String getEmail() {
         return email;
@@ -96,21 +86,6 @@ public class User implements UserDetails {
         this.email = email;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public void setId(Long id) {
         this.id = id;
@@ -150,10 +125,7 @@ public class User implements UserDetails {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", age=" + age +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
                 '}';

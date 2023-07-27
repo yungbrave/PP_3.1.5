@@ -44,9 +44,6 @@ function makeUsersTableBody(data) {
     for (let i = 0; i < data.length; i++) {
         allUsersTableBody += `<tr>
         <td>${data[i].id}</td>
-        <td>${data[i].firstName}</td>
-        <td>${data[i].lastName}</td>
-        <td>${data[i].age}</td>
         <td>${data[i].email}</td>
         <td>
         <span>`;
@@ -76,9 +73,6 @@ function makeTr(data) {
     let newUsersTableBody = ''
     newUsersTableBody += `<tr>
     <td>${data.id}</td>
-    <td>${data.firstName}</td>
-    <td>${data.lastName}</td>
-    <td>${data.age}</td>
     <td>${data.email}</td>
     <td>
     <span>`;
@@ -119,9 +113,6 @@ async function createNewUser(event) {
         method: 'POST',
         headers: {'Content-Type': 'application/json;charset=utf-8'},
         body: JSON.stringify({
-            firstName: formNU.firstName.value,
-            lastName: formNU.lastName.value,
-            age: formNU.age.value,
             email: formNU.email.value,
             password: formNU.email.value,
             roles: rolesSelected
